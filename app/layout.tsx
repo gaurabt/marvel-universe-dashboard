@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import NextUiProvider from './providers/NextUIProvider'
+import QueryProvider from './providers/QueryProvider'
+import NavBar from './components/Navbar'
 
 
 
@@ -23,9 +25,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <NextUiProvider>
-      <body className={font.className}>{children}</body>
-      </NextUiProvider>
+      <QueryProvider>
+        <NextUiProvider>
+          <body className={font.className}>
+            <NavBar />
+            {children}
+          </body>
+        </NextUiProvider>
+      </QueryProvider>
     </html>
   )
 }

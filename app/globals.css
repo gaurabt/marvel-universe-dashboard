@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --bg-color: #03170e;
+  --primary-color: #9becf3;
+  --secondary-color: #071f40;
+  --accent-color: #2d7ae6;
+  --text-color: #edfdf6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,4 +27,28 @@ body {
   margin: 0;
   border: 0;
   box-sizing: border-box;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+body{
+  @apply xl:px-[5rem];
+}
+
+.link{
+  @apply text-white focus:text-emerald-400;
+}
+
+.link.active{
+  @apply font-bold text-emerald-400 text-lg;
+}
+
+.card{
+  @apply flex gap-4 w-[60vw] min-w-[700px] rounded-md overflow-hidden;
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
 }
