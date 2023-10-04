@@ -4,18 +4,22 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const NavBar = () => {
+
     const router = useRouter()
 
     const [isActive, setIsActive] = useState('')
 
     const [searchQuery, setSearchQuery] = useState('')
 
-    const handleSearch = (e: React.FormEvent) => {
+    const handleSearch = async (e: React.FormEvent) => {
       e.preventDefault()
-      //redirect the user to searchresults page
-      router.push(`/searchresults?query=${searchQuery}`)
-    }
-
+      if(!searchQuery){
+        setSearchQuery('')
+      }else{
+        //redirect the user to searchresults page
+        router.push(`/searchresults?query=${searchQuery}`)
+      }
+      }
       return (<Navbar className="bg-transparent">
         <NavbarBrand>
           <Link href="/">

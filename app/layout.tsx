@@ -4,11 +4,10 @@ import { Poppins } from 'next/font/google'
 import NextUiProvider from './providers/NextUIProvider'
 import QueryProvider from './providers/QueryProvider'
 import NavBar from './components/Navbar'
-
-
+import Footer from './components/pages/Footer'
 
 const font = Poppins({ 
-  weight: ['400', '600'],
+  weight: ['400', '600', '800', '900'],
   style: ['normal'],
   subsets: ['latin']
  })
@@ -24,14 +23,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <QueryProvider>
-        <NextUiProvider>
-          <body className={font.className}>
-            <NavBar />
-            {children}
-          </body>
-        </NextUiProvider>
+          <NextUiProvider>
+              <body className={font.className}>
+                <NavBar />
+                {children}
+                <Footer />
+              </body>
+          </NextUiProvider>
       </QueryProvider>
     </html>
   )
