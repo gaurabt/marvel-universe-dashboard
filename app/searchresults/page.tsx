@@ -13,7 +13,6 @@ const Page = () => {
 
   const searchQuery = searchParams.get('query')
 
-  console.log(searchQuery)
   //variables required to call api
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_API_KEY;
   const privateKey = process.env.NEXT_PUBLIC_PRIVATE_API_KEY;
@@ -43,7 +42,7 @@ const Page = () => {
   if(data){
     return (
       <div>
-        <span className="text-3xl text-purple-500">You searched for:</span><span className="text-3xl">&nbsp;{searchQuery.toUpperCase()}</span>
+        <span className="text-3xl text-purple-500">You searched for:</span><span className="text-3xl">&nbsp;{searchQuery}</span>
         <div className="flex flex-wrap gap-x-10 gap-y-8 justify-center items-center mt-10 pb-[6rem]">
           {data.map((item: any)=>{
             return(
