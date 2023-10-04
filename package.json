@@ -19,6 +19,7 @@
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
