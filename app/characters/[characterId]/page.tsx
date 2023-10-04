@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import CryptoJS from 'crypto-js'
 import { easeIn, motion } from 'framer-motion';
 
-const page = ({params} : {params: any}) => {
+const Page = ({params} : {params: any}) => {
   const router = useRouter()
   const {characterId} = params
 
@@ -101,4 +101,4 @@ const page = ({params} : {params: any}) => {
   }
   }
 
-export default page
+export default Page

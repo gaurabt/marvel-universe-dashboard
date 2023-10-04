@@ -8,7 +8,7 @@ import Item from "../components/Item"
 import { useState } from 'react'
 import Link from "next/link"
 
-const page = () => {
+const Page = () => {
   const searchParams = useSearchParams()
 
   const searchQuery = searchParams.get('query')
@@ -64,4 +64,4 @@ const page = () => {
   }
 }
 
-export default page
+export default Page
