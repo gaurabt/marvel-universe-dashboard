@@ -69,14 +69,14 @@ export default function Home() {
       <Header></Header>
       <h1 className='gradient-text'>Discover Marvel Characters</h1>
         {/*map through the array of characters and display each character */}
-      <div className='grid gap-y-8 md:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] grid-cols-1 place-items-center lg:mx-[5rem] md:mx-[3rem] mx-[3rem]'>
+      <div className='flex flex-wrap gap-x-10 gap-y-12 lg:mx-[6rem] md:mx-[3rem] mx-[3rem] justify-center items-center'>
         {arrData.map((item: any) => {
             return <Link key={item.id} href={`/characters/${item.id}`}>
                 <Item key={item.id} id={item.id} name={item.name} description={item.description} thumbnail={item.thumbnail}/>
                 </Link>
           })}
       </div>
-      <div className='w-full flex justify-center items-center gap-4 pb-5'>
+      <div className='w-full flex justify-center items-center gap-4 pb-[5.5rem] pt-8'>
         <button disabled={currentPage === 1} onClick={()=> setCurrentPage(currentPage-1)} className='bg-[var(--secondary-color)] px-3 py-2 mt-5 rounded-sm text-[var(--primary-color)] hover:bg-blue-500 hover:text-black transition-all'>
           Previous Page
         </button>

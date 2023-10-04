@@ -15,8 +15,8 @@ const page = () => {
 
   console.log(searchQuery)
   //variables required to call api
-  const publicKey = '0e9f6b245fcc0405e8ec3441192dab46';
-  const privateKey = 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
+  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_API_KEY;
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_API_KEY;
   const timestamp = new Date().getTime().toString();
   const hash = CryptoJS.MD5(timestamp + privateKey + publicKey);
   
@@ -44,7 +44,7 @@ const page = () => {
     return (
       <div>
         <span className="text-3xl text-purple-500">You searched for:</span><span className="text-3xl">&nbsp;{searchQuery.toUpperCase()}</span>
-        <div className="flex flex-wrap gap-x-10 gap-y-8 justify-center items-center mt-10">
+        <div className="flex flex-wrap gap-x-10 gap-y-8 justify-center items-center mt-10 pb-[6rem]">
           {data.map((item: any)=>{
             return(
               <Link className="hover:scale-[1.05] transition-all" key={item.id} href={`/characters/${item.id}`}>
