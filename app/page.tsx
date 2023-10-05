@@ -23,7 +23,7 @@ export default function Home() {
   
   const fetchMarvelData = async (timestamp: string, publicKey: any, privateKey: any, currentPage: number, itemsPerPage: number) => {
     const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
-    const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${itemsPerPage}&offset=${(currentPage - 1) * itemsPerPage}`);
+    const response = await axios.get(`https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${itemsPerPage}&offset=${(currentPage - 1) * itemsPerPage}`);
     return response.data.data.results;
   };
 

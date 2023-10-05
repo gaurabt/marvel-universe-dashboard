@@ -20,7 +20,7 @@ const Page = ({params} : {params: any}) => {
   const { isLoading, error , data } = useQuery({
     queryKey: ['marvelData'],
     queryFn: async () => {
-      const response = await axios.get(`http://gateway.marvel.com/v1/public/characters/${characterId}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`)
+      const response = await axios.get(`https://gateway.marvel.com/v1/public/characters/${characterId}?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`)
       const data = await response.data.data.results
       if(data){
         console.log(data)
