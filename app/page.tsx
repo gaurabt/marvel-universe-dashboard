@@ -20,33 +20,9 @@ export default function Home() {
   const publicKey = process.env.NEXT_PUBLIC_PUBLIC_API_KEY || '0e9f6b245fcc0405e8ec3441192dab46';
   const privateKey = process.env.NEXT_PUBLIC_PRIVATE_API_KEY || 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
   const timestamp = new Date().getTime().toString();
-
-  /*
-  //using Tanstack-query to call api
-  const { isLoading, error , data } = useQuery({
-    queryKey: ['marvelData'],
-    queryFn: async () => {
-      const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${items}&offset=${startindex}`)
-      const data = await response.data.data.results
-      if(data){
-        console.log(arrData)
-        return data
-      }
-    },
-    onSuccess(data) {
-      setArrData(data)
-    },
-  })
-
-  if(isLoading) return 'Your content is loading. Please wait!'
-
-  if(error instanceof Error){
-    return 'There was an error.' + error.message
-  }
-  */
   
   const fetchMarvelData = async (timestamp: string, publicKey: any, privateKey: any, currentPage: number, itemsPerPage: number) => {
-    const hash = CryptoJS.MD5(timestamp + privateKey + publicKey);
+    const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
     const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${itemsPerPage}&offset=${(currentPage - 1) * itemsPerPage}`);
     return response.data.data.results;
   };
