@@ -23,15 +23,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <QueryProvider>
-          <NextUiProvider>
-              <body className={font.className}>
+          <body className={font.className}>
+            <NextUiProvider>
                 <NavBar />
                 {children}
                 <Footer />
-              </body>
-          </NextUiProvider>
+            </NextUiProvider>
+          </body>
       </QueryProvider>
     </html>
   )

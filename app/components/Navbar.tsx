@@ -73,16 +73,19 @@ const NavBar = () => {
           </NavbarItem>
         </NavbarContent>}
         <NavbarItem className="bg-white rounded-md" >
-          <input 
-            type="text" 
-            className="outline-none text-black w-[180px] p-2 text-[0.8rem] rounded-l-md"
-            placeholder="Search for a Character"
-            value={searchQuery}
-            onChange={(e)=> setSearchQuery(e.target.value)}/>
-          <button 
-            className="text-black px-2 hover:text-emerald-400 transition-colors"
-            type="submit"
-            onClick={handleSearch}>Search</button>
+          <form onSubmit={handleSearch}>
+            <input 
+              type="text" 
+              className="outline-none text-black w-[180px] p-2 text-[0.8rem] rounded-l-md"
+              placeholder="Search for a Character"
+              value={searchQuery}
+              onChange={(e)=> setSearchQuery(e.target.value)}/>
+            <button 
+              className="text-black px-2 hover:text-emerald-400 transition-colors"
+              type="submit"
+              onClick={handleSearch}
+              >Search</button>
+          </form>
         </NavbarItem>
       </Navbar>)
 }
