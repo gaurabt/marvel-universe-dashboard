@@ -44,7 +44,7 @@ const Page = () => {
       <div>
         <span className="text-3xl text-purple-500">You searched for:</span><span className="text-3xl">&nbsp;{searchQuery}</span>
         <div className="flex flex-wrap gap-x-10 gap-y-8 justify-center items-center mt-10 pb-[6rem]">
-          {data && data.map((item: any)=>{
+          {data ? (data.map((item: any)=>{
             return(
               <Link className="hover:scale-[1.05] transition-all" key={item.id} href={`/characters/${item.id}`}>
                 <Item
@@ -56,8 +56,9 @@ const Page = () => {
                   />
               </Link>
             )
-          })}
-          <div className="h-[50vh] flex justify-center items-center text-blue-500 text-xl">Found 0 results</div>
+          })) : 
+          (<div className="h-[50vh] flex justify-center items-center text-blue-500 text-xl">Found 0 results</div>)
+          }
         </div>
       </div>
     )
