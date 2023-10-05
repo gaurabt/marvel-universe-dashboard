@@ -14,7 +14,7 @@
 
 --I have also deployed this project here:
 
-## https://marvel-universe-dashboard-d4v8-8uhlr4ex1-gaurabt.vercel.app/
+## https://marvel-universe-dashboard-d4v8-p7npntlq3-gaurabt.vercel.app/
 
 but for some reason it only fetches data when i run it locally. Feel free to check it anyways.
 
