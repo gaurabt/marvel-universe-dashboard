@@ -17,8 +17,8 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   
-  const publicKey = '0e9f6b245fcc0405e8ec3441192dab46';
-  const privateKey = 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
+  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_API_KEY || '0e9f6b245fcc0405e8ec3441192dab46';
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_API_KEY || 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
   const timestamp = new Date().getTime().toString();
 
   /*
@@ -45,9 +45,9 @@ export default function Home() {
   }
   */
   
-  const fetchMarvelData = async (timestamp: string, publicKey: any, privateKey: any, currentPage: number, items: number) => {
+  const fetchMarvelData = async (timestamp: string, publicKey: any, privateKey: any, currentPage: number, itemsPerPage: number) => {
     const hash = CryptoJS.MD5(timestamp + privateKey + publicKey);
-    const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${items}&offset=${(currentPage - 1) * items}`);
+    const response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}&limit=${itemsPerPage}&offset=${(currentPage - 1) * itemsPerPage}`);
     return response.data.data.results;
   };
 

@@ -14,8 +14,8 @@ const Page = () => {
   const searchQuery = searchParams.get('query')
 
   //variables required to call api
-  const publicKey = '0e9f6b245fcc0405e8ec3441192dab46';
-  const privateKey = 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
+  const publicKey = process.env.NEXT_PUBLIC_PUBLIC_API_KEY || '0e9f6b245fcc0405e8ec3441192dab46';
+  const privateKey = process.env.NEXT_PUBLIC_PRIVATE_API_KEY || 'ccb909f381a1ee94ef3fab6579155fb11bcfad40';
   const timestamp = new Date().getTime().toString();
   const hash = CryptoJS.MD5(timestamp + privateKey + publicKey);
   
