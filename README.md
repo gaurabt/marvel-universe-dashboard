@@ -14,6 +14,10 @@
 
 --I have also deployed this project here:
 
-## https://marveludatabase.netlify.app/
+## https://marvel-universe-dashboard-d4v8-8uhlr4ex1-gaurabt.vercel.app/
 
 but for some reason it only fetches data when i run it locally. Feel free to check it anyways.
+
+## Update
+
+After digging around the internet for an hour, it finally works!
